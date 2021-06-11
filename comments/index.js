@@ -37,6 +37,14 @@ app.post('/posts/:id/comments', async (req, res) => {
   res.status(201).json(comments[comments.length - 1]);
 });
 
+app.post('/events', (req, res) => {
+  // axios.post('http://localhost:4000/events', event);
+
+  console.log('Received Event: ', req.body.type);
+
+  res.status(200).json({ message: 'event-received' });
+});
+
 app.listen(4001, () => {
   console.log('comments => http://localhost:4001');
 });
