@@ -10,9 +10,9 @@ app.post('/events', async (req, res) => {
 
   await axios.post('http://localhost:4000/events', event);
   await axios.post('http://localhost:4001/events', event);
-  // await axios.post('http://localhost:4002/events', event);
+  await axios.post('http://localhost:4002/events', event);
 
   res.status(200).json({ message: 'success' });
 });
 
-app.listen(4005, console.log('Event service: http://localhost:4005'));
+app.listen(4005, () => console.log('Event service: http://localhost:4005'));
