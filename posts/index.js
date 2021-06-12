@@ -34,8 +34,6 @@ app.post('/posts', async (req, res) => {
 app.post('/events', (req, res) => {
   // axios.post('http://localhost:4000/events', event);
 
-  console.log('Received Event: ', req.body.type);
-
   res.status(200).send();
 });
 
