@@ -5,13 +5,13 @@ const app = express();
 
 app.use(express.json());
 
-app.post('/events', (req, res) => {
+app.post('/events', async (req, res) => {
   const { type, data } = req.body;
 
   if (type === 'CommentCreated') {
     const status = data.content.includes('fuck') ? 'rejected' : 'approved';
 
-    axios.post('http://localhost:4005', {
+    await axios.post('http://localhost:4005/events', {
       type: 'CommentModerated',
       data: {
         id: data.id,
@@ -21,6 +21,7 @@ app.post('/events', (req, res) => {
       },
     });
   }
+  return res.status(200).json({ message: 'ok' });
 });
 
 app.listen(4003, () => {
