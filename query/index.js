@@ -29,7 +29,7 @@ const handleEvent = (type, data) => {
   }
 };
 
-app.get('/posts', async (req, res) => {
+app.get('/posts', (req, res) => {
   res.json(posts);
 });
 
